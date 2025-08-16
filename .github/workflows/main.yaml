@@ -80,18 +80,6 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-      - name: Free up Docker space
-        run: |
-          docker system prune -af --volumes
-
-      - name: Free up disk space
-        run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /usr/local/lib/android
-          sudo rm -rf /opt/ghc
-          docker system prune -af
-          docker volume prune -f
-
       
       
       - name: Pull latest images
